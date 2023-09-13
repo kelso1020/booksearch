@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
 import {
   Container,
   Card,
   Button,
-  Row
+  Row,
+  Col
 } from "react-bootstrap";
 import { GET_ME } from "../utils/queries";
 import { REMOVE_BOOK } from "../utils/mutations";
@@ -46,11 +47,11 @@ const SavedBooks = () => {
 
   return (
     <>
-      <div fluid className="text-light bg-dark p-5">
+      <Container fluid className="text-light bg-dark">
         <Container>
           <h1>Viewing saved books!</h1>
         </Container>
-      </div>
+      </Container>
       <Container>
         <h2>
           {userData.savedBooks?.length
@@ -60,8 +61,9 @@ const SavedBooks = () => {
             : "You have no saved books!"}
         </h2>
         <Row>
-          {userData.savedBooks.map((book) => {
+          {userData.savedBooks?.map((book) => {
             return (
+              <Col md="4">
               <Card key={book.bookId} border="dark">
                 {book.image ? (
                   <Card.Img
@@ -82,6 +84,7 @@ const SavedBooks = () => {
                   </Button>
                 </Card.Body>
               </Card>
+              </Col>
             );
           })}
         </Row>

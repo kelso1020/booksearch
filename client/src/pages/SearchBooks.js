@@ -5,7 +5,7 @@ import {
   Form,
   Button,
   Card,
-  CardColumns,
+  Row
 } from "react-bootstrap";
 
 import Auth from "../utils/auth";
@@ -97,7 +97,7 @@ const SearchBooks = () => {
 
   return (
     <>
-      <div className="text-light bg-dark p-5">
+      <div className="text-light bg-dark">
         <Container>
           <h1>Search for Books!</h1>
           <Form onSubmit={handleFormSubmit}>
@@ -128,7 +128,7 @@ const SearchBooks = () => {
             ? `Viewing ${searchedBooks.length} results:`
             : "Search for a book to begin"}
         </h2>
-        <CardColumns>
+        <Row>
           {searchedBooks.map((book) => {
             return (
               <Card key={book.bookId} border="dark">
@@ -162,11 +162,10 @@ const SearchBooks = () => {
               </Card>
             );
           })}
-        </CardColumns>
+        </Row>
       </Container>
     </>
   );
 };
 
 export default SearchBooks;
-
